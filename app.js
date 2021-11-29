@@ -1,5 +1,6 @@
 const express = require('express')
 const { CONFIG } = require('./config')
+const { createMappingsDir } = require('./src/functions/appFunctions')
 const app = express()
 const cors = require('cors')
 const actions = require("./src/routes/actions")
@@ -21,6 +22,7 @@ app.use("/", actions)
 app.use("/api", mocks)
 
 app.listen(serverPort, () => {
+  createMappingsDir()
   console.log(`Started server on ${serverUrl}...`)
 })
 
