@@ -44,7 +44,7 @@ function verifyRequest(req, data) {
     return verifications
 }
 
-function manageResponse(req, res){
+function manageResponse(req, res) {
     let counter = 0
     fs.readdirSync(CONFIG.JSON_RESPONSES_FOLDER).forEach(file => {
         let rawdata = fs.readFileSync(CONFIG.JSON_RESPONSES_FOLDER + '\\' + file)
@@ -56,6 +56,12 @@ function manageResponse(req, res){
         }
     })
     if (counter === 0) {
+        let obj = {
+            urlPath: req.url,
+            headers: req.headers,
+            jsonBody: req.body
+        }
+        console.log(obj)
         res.send({
             message: "No match found..."
         })
