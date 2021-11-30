@@ -8,7 +8,7 @@ Requires [Node.js](https://nodejs.org/) to run.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd wirenode(root folder)
+cd WireNode(root folder)
 npm install
 npm run start
 ```
